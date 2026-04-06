@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface StarApiService {
-    @GET("people/")
+    @GET("api/people/")
     suspend fun getTopHeroes(
         @Query("page") page : Int
     ): StarHeroesResponseDto
