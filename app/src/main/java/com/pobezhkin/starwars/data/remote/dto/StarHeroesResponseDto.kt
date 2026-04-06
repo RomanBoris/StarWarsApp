@@ -1,8 +1,11 @@
 package com.pobezhkin.starwars.data.remote.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class StarHeroesResponseDto(
     val count: Int?,
     val next: String?,
     val previous: String?,
-    val results: List<StarHeroesDto>
+    @SerializedName("results")
+    val resultsHeroes: List<StarHeroesDto>
 )
