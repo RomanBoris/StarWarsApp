@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 fun StarHomeScreen(
     modifier: Modifier = Modifier,
     viewModel: StarHomeViewModel = hiltViewModel(),
+    onHeroesClick: (String) -> Unit
 ){
     val state by viewModel.state.collectAsState()
     val _state = state
@@ -39,11 +40,16 @@ fun StarHomeScreen(
 
             LazyColumn(modifier = modifier) {
                 items(_state.starHeroes) { starList ->
-                    StarCard(starHeroes = starList)
+                    StarCard(
+                        starHeroes = starList,
+                        onClick = {onHeroesClick(starList.name) }
+                    )
                 }
             }
 
         }
     }
+
+
 
 }

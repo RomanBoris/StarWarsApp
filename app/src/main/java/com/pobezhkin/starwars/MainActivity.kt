@@ -11,8 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.pobezhkin.starwars.presentation.detailsScreen.StarDetailsScreen
 import com.pobezhkin.starwars.presentation.home.StarHomeScreen
+import com.pobezhkin.starwars.presentation.navigation.StarNavGraph
 import com.pobezhkin.starwars.ui.theme.StarWarsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +26,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             StarWarsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                   // StarHomeScreen(modifier = Modifier.padding(innerPadding))
-                    StarDetailsScreen(modifier = Modifier.padding(innerPadding))
+                    val navController = rememberNavController()
+                    StarNavGraph(
+                        navController = navController,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }

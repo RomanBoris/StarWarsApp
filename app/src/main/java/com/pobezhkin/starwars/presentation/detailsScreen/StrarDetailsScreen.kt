@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun StarDetailsScreen(modifier: Modifier = Modifier){
+fun StarDetailsScreen(modifier: Modifier = Modifier, heroName : String){
     Box(modifier = Modifier.fillMaxSize(), contentAlignment  =  Alignment.Center){
         Text("СКОРО БУДУТ ДАННЫЕ ПОДОЖДИТЕ")
     }
