@@ -18,9 +18,9 @@ fun StarNavGraph(navController: NavHostController, modifier: Modifier = Modifier
     ){
             composable(StarNavigationScreens.HeroesList.starRoute){
                 StarHomeScreen(modifier= modifier,
-                    onHeroesClick = {heroName ->
+                    onHeroesClick = {id ->
                         navController.navigate(
-                            StarNavigationScreens.Herodetails.createStarRoute(heroName)
+                            StarNavigationScreens.Herodetails.createStarRoute(id)
                         )
 
                     }

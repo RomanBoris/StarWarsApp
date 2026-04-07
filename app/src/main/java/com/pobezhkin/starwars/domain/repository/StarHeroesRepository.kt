@@ -5,4 +5,5 @@ import com.pobezhkin.starwars.domain.util.Result
 
 interface StarHeroesRepository {
     suspend fun getAllHeroes(): Result<List<StarHeroes>>
+    suspend fun getByIdHeroes(id : String): Result<StarHeroes>
 }
