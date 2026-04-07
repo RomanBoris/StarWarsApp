@@ -39,22 +39,22 @@ class StarHeroesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getByIdHeroes(id: String): Result<StarHeroes> {
-        return  try {
-            val starResponceId = starApiService.getHeroById(
-              heroId = id
-            ).toStarHeroes()
-            Result.Success(starResponceId)
-        } catch (e: IOException) {
-            val cashed =  starHeroDao.getHeroById(id)?.toStarHeroes()
-            if (cashed == null) Result.Error("Нет подключения к интернету")
-            else Result.Success(cashed)
-        } catch (e: HttpException) {
-            Result.Error("Ошибка сервера: ${e.code()}")
-        } catch (e: Exception) {
-            Result.Error("Неизвестная ошибка")
+        override suspend fun getByIdHeroes(id: String): Result<StarHeroes> {
+            return  try {
+                val starResponceId = starApiService.getHeroById(
+                  heroId = id
+                ).toStarHeroes()
+                Result.Success(starResponceId)
+            } catch (e: IOException) {
+                val cashed =  starHeroDao.getHeroById(id)?.toStarHeroes()
+                if (cashed == null) Result.Error("Нет подключения к интернету")
+                else Result.Success(cashed)
+            } catch (e: HttpException) {
+                Result.Error("Ошибка сервера: ${e.code()}")
+            } catch (e: Exception) {
+                Result.Error("Неизвестная ошибка")
+            }
         }
-    }
 
 
 }

@@ -23,6 +23,8 @@ private val getHeroesIdUseCase: GetHeroesIdUseCase,
     val state: StateFlow<DetailsUiState> = _state.asStateFlow()
     private val heroId : String = savedStateHandle["heroName"] ?: ""
 
+
+
     init {
 
         loadHeroById()
