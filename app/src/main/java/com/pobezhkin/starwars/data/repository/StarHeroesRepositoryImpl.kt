@@ -46,7 +46,9 @@ class StarHeroesRepositoryImpl @Inject constructor(
             ).toStarHeroes()
             Result.Success(starResponceId)
         } catch (e: IOException) {
-            Result.Error("Нет подключения к интернету")
+            val cashed =  starHeroDao.getHeroById(id)?.toStarHeroes()
+            if (cashed == null) Result.Error("Нет подключения к интернету")
+            else Result.Success(cashed)
         } catch (e: HttpException) {
             Result.Error("Ошибка сервера: ${e.code()}")
         } catch (e: Exception) {

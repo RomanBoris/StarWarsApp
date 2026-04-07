@@ -17,4 +17,7 @@ interface StarHeroDao {
 
     @Query("DELETE FROM starHero")
     suspend fun clearHeroes()
+
+    @Query("SELECT * FROM starHero WHERE url LIKE '%/' || :heroId || '/'")
+    suspend fun getHeroById(heroId: String): StarHeroEntity?
 }
