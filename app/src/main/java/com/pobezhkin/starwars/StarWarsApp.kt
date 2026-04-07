@@ -1,4 +1,4 @@
-package com.pobezhkin.starwars.ui.theme
+package com.pobezhkin.starwars
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
