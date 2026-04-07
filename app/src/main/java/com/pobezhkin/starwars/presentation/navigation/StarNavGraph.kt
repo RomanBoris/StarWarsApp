@@ -18,9 +18,9 @@ fun StarNavGraph(navController: NavHostController, modifier: Modifier = Modifier
     ){
             composable(StarNavigationScreens.HeroesList.starRoute){
                 StarHomeScreen(modifier= modifier,
-                    onHeroesClick = {heroName ->
+                    onHeroesClick = {id ->
                         navController.navigate(
-                            StarNavigationScreens.Herodetails.createStarRoute(heroName)
+                            StarNavigationScreens.Herodetails.createStarRoute(id)
                         )
 
                     }
@@ -35,7 +35,7 @@ fun StarNavGraph(navController: NavHostController, modifier: Modifier = Modifier
                 )
             ){backStack ->
             val heroName = backStack.arguments?.getString("heroName") ?: ""
-            StarDetailsScreen(modifier= modifier, heroName = heroName)
+            StarDetailsScreen(modifier= modifier)
         }
     }
 

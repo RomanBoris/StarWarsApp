@@ -42,7 +42,7 @@ fun StarHomeScreen(
                 items(_state.starHeroes) { starList ->
                     StarCard(
                         starHeroes = starList,
-                        onClick = {onHeroesClick(starList.name) }
+                        onClick = onHeroesClick
                     )
                 }
             }

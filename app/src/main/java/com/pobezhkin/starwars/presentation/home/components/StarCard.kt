@@ -14,9 +14,12 @@ import androidx.compose.ui.unit.dp
 import com.pobezhkin.starwars.domain.model.StarHeroes
 
 @Composable
-fun StarCard(starHeroes: StarHeroes, onClick : () -> Unit = {}) {
+fun StarCard(starHeroes: StarHeroes, onClick : (String) -> Unit = {}) {
     Card(
-        onClick = onClick,
+        onClick =   {
+            val id = starHeroes.url.split("/").dropLast(1).last()
+            onClick(id)
+        },
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),
