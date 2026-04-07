@@ -35,7 +35,7 @@ fun StarNavGraph(navController: NavHostController, modifier: Modifier = Modifier
                 )
             ){backStack ->
             val heroName = backStack.arguments?.getString("heroName") ?: ""
-            StarDetailsScreen(modifier= modifier, heroName = heroName)
+            StarDetailsScreen(modifier= modifier)
         }
     }
 
